@@ -218,7 +218,7 @@ public:
    *  @return EC_Normal if initialization was successful, otherwise error code.
    *          NET_EC_AlreadyConnected if SCU is already connected.
    */
-  virtual OFCondition initNetwork();
+  virtual OFCondition initNetwork(int acceptorPort = 0);
 
   /** Negotiate association by using presentation contexts and parameters as defined by
    *  earlier function calls. If negotiation fails, there is no need to close the association

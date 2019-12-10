@@ -100,7 +100,7 @@ DcmSCU::~DcmSCU()
 }
 
 
-OFCondition DcmSCU::initNetwork()
+OFCondition DcmSCU::initNetwork(int acceptorPort)
 {
   /* Return if SCU is already connected */
   if (isConnected())
@@ -111,7 +111,7 @@ OFCondition DcmSCU::initNetwork()
 
   OFString tempStr;
   /* initialize network, i.e. create an instance of T_ASC_Network*. */
-  OFCondition cond = ASC_initializeNetwork(NET_REQUESTOR, 0, m_acseTimeout, &m_net);
+  OFCondition cond = ASC_initializeNetwork(NET_REQUESTOR, acceptorPort, m_acseTimeout, &m_net);
   if (cond.bad())
   {
     DimseCondition::dump(tempStr, cond);
